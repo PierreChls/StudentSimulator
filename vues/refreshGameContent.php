@@ -1,11 +1,3 @@
-<?php
-	session_start ();
-	
-	$id_personnage = $_SESSION['id_personnage'];
-	
-	
-	include 'story.php';
-?>
 
 <?php if($nb_personnage==4){ ?>
 						<p>Vous avez fini le jeu!</p>

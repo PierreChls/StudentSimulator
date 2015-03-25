@@ -172,6 +172,31 @@
 	  text-align: left;
 }
 
+.container .gamecontent .myClassement{
+	  margin: auto;
+	  margin-top: 40px;
+	  padding-left: 20px;
+}
+
+.container .gamecontent .myClassement .people{
+	  width: 100%;
+	  margin: 10px auto;
+}
+
+.container .gamecontent .myClassement .people#menu{
+	  border-bottom: 1px solid #333;
+}
+.container .gamecontent .myClassement .people#menu li{
+	  text-transform: uppercase;
+}
+
+
+.container .gamecontent .myClassement .people li{
+	  display: inline-block;
+	  text-align: center;
+	  width: 120px;
+	  text-transform: capitalize;
+}
 
 .container #gamecontent{
 	background: #fff;
@@ -185,9 +210,9 @@
 	position: absolute;
     z-index: 9999;
     top: 560px;
-    width: 400px;
+    width: 500px;
     left: 50%;
-    margin-left: -200px;
+    margin-left: -250px;
 }
 
 .container .nav ul{

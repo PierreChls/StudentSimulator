@@ -22,6 +22,9 @@
 		    $("#nav_recompenses").click(function(){
 		        $("#gamecontent").load("refreshGameRecompenses.php");
 		    });
+		    $("#nav_classement").click(function(){
+		        $("#gamecontent").load("refreshGameClassement.php");
+		    });
 		});
 	</script>
 	  

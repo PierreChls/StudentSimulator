@@ -188,6 +188,7 @@
 					<li id="nav_gamecontent">Zone de jeu</li>
 					<li id="nav_harem">Mon Harem</li>
 					<li id="nav_recompenses">Mes récompenses</li>
+					<li id="nav_classement">Classement</li>
 				</ul>
 			</div>
 						
