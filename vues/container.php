@@ -1,26 +1,5 @@
 
-
-<?php 
-
-	$nb_preservatif=getNbPreservatif($id_personnage, $bdd);
-	$nb_femme=getNbFemme($id_personnage, $bdd);
-	$poids=getPoids($id_personnage, $bdd);
-	$energie=getEnergie($id_personnage, $bdd);
-	$vitalite=getVitalite($id_personnage, $bdd);
-	$rang=getRang($id_personnage, $bdd);
-	$nb_neuronnes=getNbNeuronne($id_personnage, $bdd);
-	$moyenne=getMoyenne($id_personnage, $bdd);
 	
-	
-	if ( isset( $_POST['access_harem'] ) ) { 
-		updateQuestState(100, $id_personnage, $bdd);	
-		updateQuestNbPersonnage(4, $id_personnage, $bdd);
-		updateSanteEnergie(100, $id_personnage, $bdd);
-		updateSanteVitalite(100, $id_personnage, $bdd);
-		echo '<meta http-equiv="refresh" content="0;URL=page_membre.php">';
-	}
-	
-?>	
 		
 		<div id="container" class="container">
 		

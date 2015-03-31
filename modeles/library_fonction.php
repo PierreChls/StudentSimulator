@@ -5,30 +5,6 @@
 //////////////////////////////////////////////
 
 
-// Connexion BDD
-function connect_to_mysql($server, $user, $password, $dataBase){
-  $bdd = mysqli_connect($server, $user, $password, $dataBase);
-
-  if (!$bdd) {
-    die('Erreur de connexion : ' . mysqli_connect_error());
-  }
-  else{
-    //echo ("Connect");
-    return $bdd;
-  }
-}
-
-// Déconnexion de la BDD
-function deconnect_to_mysql($bdd){
-  if($deco = mysqli_close($bdd)){
-    //echo "Deconnect\n";
-  }
-  else{
-    echo "problème";
-  }
-}
-
-
 
 //////////////////////////////////////////////
 /////////// FUNCTION CREATE USER /////////////
@@ -479,7 +455,6 @@ function getRecompense($id_quest, $bdd){
 //Retourne la recompense d'une quete
 function getClassement($bdd){
   
-  $i=0;
   $classement = array();
   
   $query = "SELECT User.nom, User.prenom, Personnage.points, Quest_Relation.id_quest, Personnage.rang FROM Quest_Relation LEFT JOIN Personnage ON Quest_Relation.id_personnage = Personnage.id_personnage LEFT JOIN User ON Personnage.id_personnage = User.id_user ORDER BY Personnage.points DESC LIMIT 6";

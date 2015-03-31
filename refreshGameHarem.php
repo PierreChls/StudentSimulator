@@ -4,8 +4,11 @@ session_start();
  
 //On se connecte à MySQL
 
-mysql_connect('localhost', 'root', 'root');
-mysql_select_db('Student_Simulator');
+
+include 'modeles/connect_function.php';
+
+$bdd = connect_to_mysql($server, $user, $password, $dataBase);
+
  
 //On inclut le contrôleur s'il existe
 if ( isset($_SESSION['login']) && isset($_SESSION['password']) && isset($_SESSION['id_personnage']) && is_file('controleurs/refreshGameHarem.php'))
@@ -18,4 +21,4 @@ else
 }
  
 //On ferme la connexion à MySQL
-mysql_close();
+deconnect_to_mysql($bdd);

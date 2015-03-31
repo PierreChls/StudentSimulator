@@ -12,13 +12,7 @@ Il n'y en aura aucune dans ce tutoriel pour rester simple, mais libre à vous d'
 //On récupère tout ici
 	
 	$id_personnage = $_SESSION['id_personnage'];
-	
-	// Variables pour la connexion
-	$server = 'localhost';
-	$user = 'root';
-	$password = 'root';
-	$dataBase = 'Student_Simulator';
-	$bdd = connect_to_mysql($server, $user, $password, $dataBase);
+
 	
 ?>
 
@@ -469,6 +463,27 @@ Il n'y en aura aucune dans ce tutoriel pour rester simple, mais libre à vous d'
 			}
 		}
 	}
+	
+	
+
+	$nb_preservatif=getNbPreservatif($id_personnage, $bdd);
+	$nb_femme=getNbFemme($id_personnage, $bdd);
+	$poids=getPoids($id_personnage, $bdd);
+	$energie=getEnergie($id_personnage, $bdd);
+	$vitalite=getVitalite($id_personnage, $bdd);
+	$rang=getRang($id_personnage, $bdd);
+	$nb_neuronnes=getNbNeuronne($id_personnage, $bdd);
+	$moyenne=getMoyenne($id_personnage, $bdd);
+	
+	
+	if ( isset( $_POST['access_harem'] ) ) { 
+		updateQuestState(100, $id_personnage, $bdd);	
+		updateQuestNbPersonnage(4, $id_personnage, $bdd);
+		updateSanteEnergie(100, $id_personnage, $bdd);
+		updateSanteVitalite(100, $id_personnage, $bdd);
+		echo '<meta http-equiv="refresh" content="0;URL=page_membre.php">';
+	}
+	
 
 //On inclut la vue
 include(dirname(__FILE__).'/../vues/barre_connexion.php');

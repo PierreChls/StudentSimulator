@@ -10,13 +10,6 @@
   Il n'y en aura aucune dans ce tutoriel pour rester simple, mais libre à vous d'en rajouter. */
 
 
-  // Variables pour la connexion
-  $server = 'localhost';
-  $user = 'root';
-  $password = 'root';
-  $dataBase = 'Student_Simulator';
-
-
   // Variables création user
   $rang = 'Puceau';
   $nbFemmes=0;
@@ -30,9 +23,6 @@
   $attaque2="Lancer de taccos";
   $attaque3="Coup de rein";
   $attaque4="Punchline";
-  
-  // Connexion à la BDD
-  $bdd = connect_to_mysql($server, $user, $password, $dataBase);
 				
 				
 				// Si quelqu'un veut se connecter
@@ -90,10 +80,6 @@
 						}
 					}
 				}
-				
-				
-	// Déconnexion
-	deconnect_to_mysql($bdd);
 	
 	
 	//On inclut la vue

@@ -13,13 +13,6 @@ Il n'y en aura aucune dans ce tutoriel pour rester simple, mais libre à vous d'
 	
 	$id_personnage = $_SESSION['id_personnage'];
 	
-	// Variables pour la connexion
-	$server = 'localhost';
-	$user = 'root';
-	$password = 'root';
-	$dataBase = 'Student_Simulator';
-	$bdd = connect_to_mysql($server, $user, $password, $dataBase);
-	
 ?>
 
 

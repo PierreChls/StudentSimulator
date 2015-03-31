@@ -4,8 +4,11 @@ session_start();
  
 //On se connecte à MySQL
 
-mysql_connect('localhost', 'root', 'root');
-mysql_select_db('Student_Simulator');
+
+include 'modeles/connect_function.php';
+
+$bdd = connect_to_mysql($server, $user, $password, $dataBase);
+
  
 //On inclut le contrôleur s'il existe
 if ( is_file('controleurs/login_verif.php'))
