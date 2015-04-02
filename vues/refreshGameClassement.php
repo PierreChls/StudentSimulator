@@ -1,7 +1,7 @@
 
 <h4>CLASSEMENT</h4>
 
-<div class="myClassement">
+<div class="myClassement" style="overflow: auto; height: 278px; border-bottom: 2px solid #f2f2f2; margin-bottom: 9px;">
 	
 	<div class="people" id="menu">
 		<img src="img/icon_blank.jpg" width="30" height="30"/>
@@ -27,3 +27,7 @@
 	?>
 	
 </div>
+
+<ul>
+	<li id="searchMyClassement"><a href="page_classement.php">Où tu te trouve dans le classement?</a></li>
+</ul>

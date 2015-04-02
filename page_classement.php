@@ -8,16 +8,15 @@ session_start();
 include 'modeles/connect_function.php';
 
 $bdd = connect_to_mysql($server, $user, $password, $dataBase);
-
  
 //On inclut le contrôleur s'il existe
-if ( is_file('controleurs/login_verif.php'))
+if ( isset($_SESSION['login']) && isset($_SESSION['password']) && isset($_SESSION['id_personnage']) && is_file('controleurs/page_classement.php'))
 {
-        include 'controleurs/login_verif.php';
+        include 'controleurs/page_classement.php';
 }
 else
 {
-        echo("Arf");
+        include 'controleurs/petit_curieux.php';
 }
  
 //On ferme la connexion à MySQL

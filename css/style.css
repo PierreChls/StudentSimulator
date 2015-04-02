@@ -222,6 +222,20 @@
 	  text-transform: capitalize;
 }
 
+
+.container .gamecontent ul{
+	  margin: 0 auto;
+}
+
+.container .gamecontent li#searchMyClassement{
+	  display: inline-block;
+	  text-align: center;
+}
+
+.container .gamecontent li#searchMyClassement a{
+	  cursor: pointer;
+}
+
 .container #gamecontent{
 	background: #fff;
 	border: 2px solid #333;

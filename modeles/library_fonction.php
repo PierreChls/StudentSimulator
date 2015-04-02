@@ -470,5 +470,31 @@ function getClassement($bdd){
   return $classement;
 }
 
+function getClassementPerson($search, $bdd){
+	
+	$classement = array();
+  
+	$query = "SELECT User.login, User.nom, User.prenom, Personnage.points, Quest_Relation.id_quest, Personnage.rang FROM Quest_Relation LEFT JOIN Personnage ON Quest_Relation.id_personnage = Personnage.id_personnage LEFT JOIN User ON Personnage.id_personnage = User.id_user ORDER BY Personnage.points DESC";
+  
+	$result= mysqli_query($bdd, $query) or die(mysqli_error($bdd));
+	
+	while($ligne=mysqli_fetch_assoc($result)){
+		array_push($classement, $ligne);
+	}	
+	
+	
+	$i=1;
+	$ligne_nom = array();
+	
+	foreach($classement as $n){
+	        if($n['login']== $search || $n['prenom']== $search || $n['nom']== $search){
+		        array_push($ligne_nom, $i, $n['nom'], $n['prenom'], $n['id_quest'], $n['points']);
+	        }
+	        $i++;
+	}
+	
+	return $ligne_nom;
+}
+
 
 ?>
