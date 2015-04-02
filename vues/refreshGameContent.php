@@ -1,6 +1,14 @@
 
 <?php if($nb_personnage==4){ ?>
-						<p>Vous avez fini le jeu!</p>
+						<h4>Vous avez fini le jeu!</h4>
+				<p>Regarde le classement voir où t'es placé par rapport aux autres joueurs. Tes femmes sont dans ton harem, tu peux aller t'occuper d'elles.</p>
+				<p>Tu veux recommencer pour essayer d'avoir un meilleur score?</p>
+				
+				<div class="game_success">
+					<form method=post action="page_membre.php" class="form-horizontal" role="form">
+						<input type="submit" id="restart_quest" name="restart_quest" value="Recommencer le jeu >"></input>
+					</form>
+				</div>
 					<?php } ?>
 					
 					<?php if($nb_personnage==5){ ?>
@@ -8,11 +16,11 @@
 							<h4>Tutorial</h4>
 						</div>
 						<div class="game_content">
-							<p>Bienvenue dans l'environnement JéromeSimulator.</p>
+							<p>Bienvenue dans l'environnement JeromeSimulator.</p>
 							<p>Autour de toi tu peux trouver ton harem, ta santé, tes études et tes attaques.</p>
-							<p>Tu vas devoir te servir toi de tes attaques pour accomplir tes quêtes.</p>
+							<p>Tu vas devoir te servir toi de tes attaques (en cliquant dessus) pour accomplir tes quêtes.</p>
 							<p>Surveille l'évolution de ton harem, de tes études et de ta santé.</p>
-							<p>Grâce au trois liens ci-dessous, tu pourras naviguer facilement entre ta zone de jeu, et d'avoir toujours une visibilité sur ton harem tes récompenses.</p>
+							<p>Grâce aux trois liens ci-dessous, tu pourras naviguer facilement entre ta zone de jeu, et avoir une visibilité permanente sur ton harem, tes récompenses et le classement.</p>
 							<p>À toi de jouer!</p>
 						</div>
 						

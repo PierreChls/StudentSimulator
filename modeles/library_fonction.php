@@ -457,7 +457,7 @@ function getClassement($bdd){
   
   $classement = array();
   
-  $query = "SELECT User.nom, User.prenom, Personnage.points, Quest_Relation.id_quest, Personnage.rang FROM Quest_Relation LEFT JOIN Personnage ON Quest_Relation.id_personnage = Personnage.id_personnage LEFT JOIN User ON Personnage.id_personnage = User.id_user ORDER BY Personnage.points DESC LIMIT 6";
+  $query = "SELECT User.nom, User.prenom, Personnage.points, Quest_Relation.id_quest, Personnage.rang FROM Quest_Relation LEFT JOIN Personnage ON Quest_Relation.id_personnage = Personnage.id_personnage LEFT JOIN User ON Personnage.id_personnage = User.id_user ORDER BY Personnage.points DESC";
   
   $result= mysqli_query($bdd, $query) or die(mysqli_error($bdd));
  
@@ -494,6 +494,30 @@ function getClassementPerson($search, $bdd){
 	}
 	
 	return $ligne_nom;
+}
+
+
+///////////////////////////////////////////////
+////////// FUNCTION RESTART GAME //////////////
+///////////////////////////////////////////////
+
+function restart_game($id_personnage, $bdd){
+	
+	$newRang = "Puceau";
+	
+	
+	updateQuestRelation(1, $id_personnage, $bdd);
+	updateQuestNbPersonnage(5, $id_personnage, $bdd);
+	updateNbPoints(0, $id_personnage, $bdd);
+	updateHaremFemmes(0, $id_personnage, $bdd);
+	updateHaremPreservatif(0, $id_personnage, $bdd);
+	updateRandPerso($newRang, $id_personnage, $bdd);
+	updateSantePoids(70, $id_personnage, $bdd);
+	updateEtudesMoyenne(10, $id_personnage, $bdd);
+	updateEtudesNeuronne(100, $id_personnage, $bdd);
+	updateQuestState(100, $id_personnage, $bdd);	
+	updateSanteEnergie(100, $id_personnage, $bdd);
+	updateSanteVitalite(100, $id_personnage, $bdd);
 }
 
 

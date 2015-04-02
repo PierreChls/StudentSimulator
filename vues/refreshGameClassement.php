@@ -16,8 +16,8 @@
 	foreach($classement as $n){
 	        echo '
 	        <div class="people">
-	        		<img src="img/icon_win'.$i.'.png" width="30" height="30"/>
-	                <li>'.$n['prenom'].'</li>
+	        		<li style="width:30px;">'.$i.'</li>
+	        		<li>'.$n['prenom'].'</li>
 	                <li>'.$n['nom'].'</li>
 	                <li>'.$n['id_quest'].'</li>
 	                <li>'.$n['points'].'</li>
@@ -28,6 +28,6 @@
 	
 </div>
 
-<ul>
+<ul style="list-style: none;">
 	<li id="searchMyClassement"><a href="page_classement.php">Où tu te trouve dans le classement?</a></li>
 </ul>

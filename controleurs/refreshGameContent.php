@@ -388,6 +388,19 @@ Il n'y en aura aucune dans ce tutoriel pour rester simple, mais libre à vous d'
 			}
 		}
 	}
+	
+	if ( isset( $_POST['access_harem'] ) ) { 
+		updateQuestState(100, $id_personnage, $bdd);	
+		updateQuestNbPersonnage(4, $id_personnage, $bdd);
+		updateSanteEnergie(100, $id_personnage, $bdd);
+		updateSanteVitalite(100, $id_personnage, $bdd);
+		echo '<meta http-equiv="refresh" content="0;URL=page_membre.php">';
+	}
+	
+	if ( isset( $_POST['restart_quest'] ) ) { 
+		restart_game($id_personnage, $bdd);
+		echo '<meta http-equiv="refresh" content="0;URL=page_membre.php">';
+	}
 
 //On inclut la vue
 include(dirname(__FILE__).'/../vues/refreshGameContent.php');
