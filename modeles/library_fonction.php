@@ -25,6 +25,7 @@ function inscription($login, $mdp, $rang, $lastname, $name, $nbFemmes, $nbPreser
 			newAttaques($id_personnage, $attaque3, $bdd);
 			newAttaques($id_personnage, $attaque4, $bdd);
 			newQuestRelation($id_personnage, 1, $bdd);
+			add_tamagotchi($id_personnage, $bdd);
 			mysqli_commit($bdd);
 			return 1;
 		}
@@ -505,7 +506,6 @@ function restart_game($id_personnage, $bdd){
 	
 	$newRang = "Puceau";
 	
-	
 	updateQuestRelation(1, $id_personnage, $bdd);
 	updateQuestNbPersonnage(5, $id_personnage, $bdd);
 	updateNbPoints(0, $id_personnage, $bdd);
@@ -520,5 +520,64 @@ function restart_game($id_personnage, $bdd){
 	updateSanteVitalite(100, $id_personnage, $bdd);
 }
 
+///////////////////////////////////////////////
+////////// FUNCTION TAMAGOTCHI //////////////
+///////////////////////////////////////////////
+
+function add_tamagotchi($id_personnage, $bdd){
+	
+	$humeur=utf8_decode("Contente");
+	$humeur2=utf8_decode("Appeurée");
+	$humeur3=utf8_decode("Excitée");
+	
+	$query = "INSERT INTO Tamagotchi (id_personnage, id_ennemi, life, poids, humeur) VALUES ('". $id_personnage ."', 2, 100, 60, '$humeur');";
+	$result= mysqli_query($bdd, $query) or die(mysqli_error($bdd));
+		
+	$query = "INSERT INTO Tamagotchi (id_personnage, id_ennemi, life, poids, humeur) VALUES ('". $id_personnage ."', 4, 100, 60, '$humeur2');";
+	$result= mysqli_query($bdd, $query) or die(mysqli_error($bdd));
+		
+	$query = "INSERT INTO Tamagotchi (id_personnage, id_ennemi, life, poids, humeur) VALUES ('". $id_personnage ."', 9, 100, 60, '$humeur3');";
+	$result= mysqli_query($bdd, $query) or die(mysqli_error($bdd));
+
+}
+
+function getLifeHaremEnnemi($id_personnage, $id_ennemi, $bdd){
+  $query = "SELECT life FROM Tamagotchi WHERE id_personnage='".$id_personnage."' AND id_ennemi='".$id_ennemi."'  LIMIT 1";
+  $result= mysqli_query($bdd, $query) or die(mysqli_error($bdd));
+  
+  $life = mysqli_fetch_assoc($result);
+  return utf8_encode($life['life']);
+}
+
+function updateLifeHaremEnnemi($newlife, $id_personnage, $id_ennemi, $bdd){
+  $query = "UPDATE Tamagotchi SET life ='". $newlife. "' WHERE Tamagotchi.id_personnage='". $id_personnage ."' AND id_ennemi='". $id_ennemi ."'";
+  mysqli_query($bdd, $query);
+}
+
+function getPoidsHaremEnnemi($id_personnage, $id_ennemi, $bdd){
+  $query = "SELECT poids FROM Tamagotchi WHERE id_personnage='".$id_personnage."' AND id_ennemi='".$id_ennemi."'  LIMIT 1";
+  $result= mysqli_query($bdd, $query) or die(mysqli_error($bdd));
+  
+  $poids = mysqli_fetch_assoc($result);
+  return utf8_encode($poids['poids']);
+}
+
+function updatePoidsHaremEnnemi($newpoids, $id_personnage, $id_ennemi, $bdd){
+  $query = "UPDATE Tamagotchi SET poids ='". $newpoids. "' WHERE Tamagotchi.id_personnage='". $id_personnage ."' AND id_ennemi='". $id_ennemi ."'";
+  mysqli_query($bdd, $query);
+}
+
+function getHumeurHaremEnnemi($id_personnage, $id_ennemi, $bdd){
+  $query = "SELECT humeur FROM Tamagotchi WHERE id_personnage='".$id_personnage."' AND id_ennemi='".$id_ennemi."'  LIMIT 1";
+  $result= mysqli_query($bdd, $query) or die(mysqli_error($bdd));
+  
+  $humeur = mysqli_fetch_assoc($result);
+  return utf8_encode($humeur['humeur']);
+}
+
+function updateHumeurHaremEnnemi($newhumeur, $id_personnage, $id_ennemi, $bdd){
+  $query = "UPDATE Tamagotchi SET humeur ='". $newhumeur. "' WHERE Tamagotchi.id_personnage='". $id_personnage ."' AND id_ennemi='". $id_ennemi ."'";
+  mysqli_query($bdd, $query);
+}
 
 ?>
