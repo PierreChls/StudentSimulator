@@ -458,7 +458,7 @@ function getClassement($bdd){
   
   $classement = array();
   
-  $query = "SELECT User.nom, User.prenom, Personnage.points, Quest_Relation.id_quest, Personnage.rang FROM Quest_Relation LEFT JOIN Personnage ON Quest_Relation.id_personnage = Personnage.id_personnage LEFT JOIN User ON Personnage.id_personnage = User.id_user ORDER BY Personnage.points DESC";
+  $query = "SELECT User.nom, User.prenom, Personnage.points, Quest_Relation.id_quest, Personnage.rang FROM Quest_Relation LEFT JOIN Personnage ON Quest_Relation.id_personnage = Personnage.id_personnage LEFT JOIN User ON Personnage.id_personnage = User.id_user WHERE id_quest=7 ORDER BY Personnage.points DESC";
   
   $result= mysqli_query($bdd, $query) or die(mysqli_error($bdd));
  
@@ -489,7 +489,7 @@ function getClassementPerson($search, $bdd){
 	
 	foreach($classement as $n){
 	        if($n['login']== $search || $n['prenom']== $search || $n['nom']== $search){
-		        array_push($ligne_nom, $i, $n['nom'], $n['prenom'], $n['id_quest'], $n['points']);
+		        array_push($ligne_nom, $i, $n['prenom'], $n['nom'], $n['id_quest'], $n['points']);
 	        }
 	        $i++;
 	}

@@ -150,7 +150,7 @@
 						<div class="game_success">
 						<p><?php $EnnemiLoot=getEnnemiLoot($id_ennemi+1, $bdd); echo($EnnemiLoot) ?></p>
 						<form method=post action="page_membre.php" class="form-horizontal" role="form">
-							<input type="submit" id="access_harem" name="access_harem" value="Accéder au harem >"></input>
+							<input type="submit" id="access_harem" name="access_harem" value="Compléter la mission >"></input>
 						</form>
 						</div>
 						<div class="game_recompense">
