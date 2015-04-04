@@ -505,6 +505,9 @@ function getClassementPerson($search, $bdd){
 function restart_game($id_personnage, $bdd){
 	
 	$newRang = "Puceau";
+	$humeur=utf8_decode("Contente");
+	$humeur2=utf8_decode("Appeurée");
+	$humeur3=utf8_decode("Excitée");
 	
 	updateQuestRelation(1, $id_personnage, $bdd);
 	updateQuestNbPersonnage(5, $id_personnage, $bdd);
@@ -518,6 +521,15 @@ function restart_game($id_personnage, $bdd){
 	updateQuestState(100, $id_personnage, $bdd);	
 	updateSanteEnergie(100, $id_personnage, $bdd);
 	updateSanteVitalite(100, $id_personnage, $bdd);
+	updateLifeHaremEnnemi(100, $id_personnage, 2, $bdd);
+	updateLifeHaremEnnemi(100, $id_personnage, 4, $bdd);
+	updateLifeHaremEnnemi(100, $id_personnage, 9, $bdd);
+	updatePoidsHaremEnnemi(60, $id_personnage, 2, $bdd);
+	updatePoidsHaremEnnemi(60, $id_personnage, 4, $bdd);
+	updatePoidsHaremEnnemi(60, $id_personnage, 9, $bdd);
+	updateHumeurHaremEnnemi($humeur, $id_personnage, 2, $bdd);
+	updateHumeurHaremEnnemi($humeur2, $id_personnage, 4, $bdd);
+	updateHumeurHaremEnnemi($humeur3, $id_personnage, 9, $bdd);
 }
 
 ///////////////////////////////////////////////
