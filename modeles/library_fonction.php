@@ -592,4 +592,31 @@ function updateHumeurHaremEnnemi($newhumeur, $id_personnage, $id_ennemi, $bdd){
   mysqli_query($bdd, $query);
 }
 
+
+
+///////////////////////////////////////////////
+///////////// FUNCTION ADMIN //////////////////
+///////////////////////////////////////////////
+
+function admin_modify($bdd){
+	$tamagotchi = array();
+	$i;
+	$query = "SELECT * FROM Tamagotchi";
+	$result= mysqli_query($bdd, $query) or die(mysqli_error($bdd));
+	
+	while($ligne=mysqli_fetch_assoc($result)){
+		array_push($tamagotchi, $ligne);
+	}	
+	
+	
+	foreach($tamagotchi as $n){
+		$id_personnage = $n['id_personnage'];
+	    $id_ennemi = $n['id_ennemi'];
+	    $newlife = $n['life'] - 10;
+	    $newpoids = $n['poids'] - 10;
+	    updateLifeHaremEnnemi($newlife, $id_personnage, $id_ennemi, $bdd);
+	    updatePoidsHaremEnnemi($newpoids, $id_personnage, $id_ennemi, $bdd);
+	}
+}
+
 ?>
