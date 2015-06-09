@@ -1,0 +1,4 @@
+cd /
+cd /Applications/MAMP PRO/htdocs/IMAC/
+git clone https://github.com/Kikoplot/StudentSimulator
+cd /
