@@ -1,4 +1,4 @@
-#StudentSimulator
+#Student Simulator
 
 An IMAC Engineering School PHP and database project, released in April 2015
 
